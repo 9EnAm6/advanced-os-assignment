@@ -1,0 +1,8 @@
+2026-03-19 13:01:12 - Submission: test.pdf by S12345 (Hash: d41d8cd98f00b204e9800998ecf8427e)
+2026-03-19 13:01:57 - Checked submission status for: test.pdf
+2026-03-19 13:02:18 - Listed all submissions
+2026-03-19 13:03:03 - Failed login attempt: student
+2026-03-19 13:03:22 - Failed login attempt: student
+2026-03-19 13:03:33 - Failed login attempt: student
+2026-03-19 13:03:33 - Account locked: student (3 failed attempts)
+2026-03-19 13:04:50 - Exited system

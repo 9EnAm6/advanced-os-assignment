@@ -1,0 +1,5 @@
+2026-03-19 12:54:52 - S12345 - TestJob - Submission - Added to queue (Priority:5, Time:10s)
+2026-03-19 12:56:06 - S12345 - TestJob - Round Robin - Executed for 5s
+2026-03-19 12:56:10 - S12345 - TestJob - Round Robin - Executed for 5s
+2026-03-19 12:56:10 - S12345 - TestJob - Round Robin - Completed
+2026-03-19 12:57:42 - SYSTEM - EXIT - SYSTEM - User exited
