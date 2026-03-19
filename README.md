@@ -72,6 +72,28 @@ This assignment addresses the following learning outcomes:
 | **Bash** | 5.0+ | Built-in shell for Task 1 and Task 3 |
 | **Git** | 2.25+ | Version control |
 
+## 📋 Design Decisions & Trade-offs
+
+### Task 1: Process Management
+- **Tool Selection:** Chose `ps` over `top` or `/proc` for simpler parsing, trading real-time monitoring for snapshot reliability.
+- **Critical Process Protection:** Blacklist approach (PID 1,2, systemd) balances safety with flexibility but may miss some critical processes.
+- **Log Archiving:** Manual implementation with `find` and `tar` demonstrates understanding, but `logrotate` would be production-ready.
+
+### Task 2: Job Scheduler
+- **Scheduling Algorithms:** Round Robin (5s quantum) vs Priority – fairness vs efficiency trade-off.
+- **Starvation Risk:** Priority scheduling without aging may starve low-priority jobs – acknowledged limitation.
+- **Data Persistence:** Flat files chosen over database for simplicity, but lacks concurrency control.
+
+### Task 3: Secure Submission
+- **MD5 Usage:** Known weakness – collisions possible. SHA-256 recommended for production.
+- **File Validation:** Extension checking only – should use magic number verification.
+- **Lockout Mechanism:** 3 attempts/60s balances security and usability, but lacks unlock workflow.
+
+## ⚠️ Known Limitations
+- Task 1: No process tree termination, slow `du` on large directories
+- Task 2: No priority aging, no I/O wait consideration
+- Task 3: MD5 collisions, no IP logging, no CAPTCHA
+
 ### **WSL Installation (Windows Users)**
 If you're on Windows and don't have WSL:
 ```powershell
