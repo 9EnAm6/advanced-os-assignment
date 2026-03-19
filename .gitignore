@@ -1,0 +1,68 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+.project
+.classpath
+.settings/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# Log files (keep the ones we need, ignore backups)
+*.log.bak
+*.log.old
+*.log.1
+*.log.2
+*.log.gz
+*.log.zip
+!system_monitor_log.txt
+!scheduler_log.txt
+!submission_log.txt
+!completed_jobs.txt
+!job_queue.txt
+!login_attempts.txt
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.swp
+
+# Archive directories (optional - if you don't want to track compressed logs)
+# ArchiveLogs/
+# submissions/
+
+# Test files (optional)
+test.pdf
+test.docx
+sample.pdf
+sample.docx
+
+# Environment files
+.env
+.venv
+venv/
+ENV/
+env/
