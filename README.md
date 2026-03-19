@@ -207,7 +207,7 @@ Enter Estimated Time (seconds): 10
 Enter Priority (1-10, 1=highest): 3
 ✅ Job 'DataProcessing' submitted successfully!
 
-Task 3: Secure Examination Submission System
+## Task 3: Secure Examination Submission System
 
 File: task3.sh
 
@@ -281,22 +281,39 @@ Sample Log Entry Format
 2026-03-19 14:31:20 - Submitted job: DataProcessing by S12345
 2026-03-19 14:32:10 - File submission: assignment.pdf by S12345
 
-📸 Screenshots
+## 📸 Screenshots
 
-Screenshots demonstrating script execution can be found in the Advanced_OS_Snapshots/ folder.
+Screenshots demonstrating script execution can be found in the [`screenshots/`](screenshots/) folder.
 
-🔍 Troubleshooting
+| Task | Screenshot | Description |
+|------|------------|-------------|
+| Task 1 | `task1_menu.png` | Main menu interface |
+| Task 1 | `task1_processes.png` | Top 10 memory processes |
+| Task 2 | `task2_menu.png` | Scheduler main menu |
+| Task 2 | `task2_rr.png` | Round Robin execution |
+| Task 2 | `task2_completed.png` | Completed jobs view |
+| Task 3 | `task3_menu.png` | Submission system menu |
+| Task 3 | `task3_submit.png` | File submission success |
+| Task 3 | `task3_lockout.png` | Account lockout feature |
 
-Common Issues and Solutions
-Problem	Solution
-Permission denied	Run chmod +x task1.sh task3.sh
-Command not found	Ensure you're in the correct directory: cd ~/advanced-os-assignment
-Python not found	Install Python: sudo apt install python3 -y
-Script hangs	Press Ctrl+C to force quit
-Git push fails	Run git pull origin main --rebase then try again
-WSL not working	Restart Windows or run wsl --shutdown in PowerShell
+---
 
-Testing Scripts
+## 🔍 Troubleshooting
+
+### Common Issues and Solutions
+
+| Problem | Solution |
+|---------|----------|
+| **Permission denied** | Run `chmod +x task1.sh task3.sh` |
+| **Command not found** | Ensure you are in the correct directory: `cd ~/advanced-os-assignment` |
+| **Python not found**  | Install Python: `sudo apt install python3 -y` |
+| **Script hangs** | Press `Ctrl+C` to force quit |
+| **Git push fails** | Run `git pull origin main --rebase` then try again |
+| **WSL not working** | Restart Windows or run `wsl --shutdown` in PowerShell |
+
+### Testing Scripts
+
+```bash
 # Test Task 1
 ./task1.sh
 
@@ -312,18 +329,9 @@ To start fresh:
 rm -f *.txt
 rm -rf submissions/ ArchiveLogs/
 
-👤 Author
-<div align="center">
-Md Shuaib
-Student ID	[Your Student ID]
-Email	amd20301@gmail.com
-GitHub	@9EnAm6
-Institution	Canterbury Christ Church University
-Module	Advanced Operating Systems (U14553)
-Course	BSc (Hons) Computer Science
-</div>
 
-📜 License
+
+##📜 **License**
 This project is submitted as part of academic coursework for the Advanced Operating Systems module at Canterbury Christ Church University.
 
 All rights reserved. Unauthorized copying, distribution, or use of this code is prohibited.
@@ -332,18 +340,7 @@ All rights reserved. Unauthorized copying, distribution, or use of this code is 
 
 
 
-🙏 Acknowledgments
-
-Dr Victor Obarafor - Module Leader
-
-Tim Jackson - Module Team
-
-Canterbury Christ Church University - Computing Department
-
-Open Source Community - For bash and Python documentation
-
 <div align="center">
-⭐ If you found this project helpful, please star the repository! ⭐
 
 ⬆ Back to Top
 
