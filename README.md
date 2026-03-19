@@ -96,22 +96,17 @@ This assignment addresses the following learning outcomes:
 
 ### **WSL Installation (Windows Users)**
 If you're on Windows and don't have WSL:
+## 🔧 Installation Guide
+
+### Prerequisites Installation
+
+#### For Windows Users (WSL)
+Open **PowerShell as Administrator** and run:
+
 ```powershell
-# Run in PowerShell as Administrator
+# Install WSL (Windows Subsystem for Linux)
 wsl --install
-After installation, search for "Ubuntu" in Start menu and complete setup.
-🔧 Installation Guide
-Step 1: Clone the Repository
-git clone https://github.com/9EnAm6/advanced-os-assignment.git
-cd advanced-os-assignment
-Step 2: Make Scripts Executable
-chmod +x task1.sh task3.sh
-Step 3: Verify Python Installation
-python3 --version
-# Should show Python 3.8 or higher
-Step 4: (Optional) Create a Virtual Environment for Python
-python3 -m venv venv
-source venv/bin/activate
+
 📖 Script Documentation
 Task 1: Process Management System
 File: task1.sh
