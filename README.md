@@ -331,14 +331,3 @@ This project is submitted as part of academic coursework for the Advanced Operat
 
 All rights reserved. Unauthorized copying, distribution, or use of this code is prohibited.
 
-© 2026 Md Shuaib. All Rights Reserved.
-
-
-
-<div align="center">
-
-⬆ Back to Top
-
-Last Updated: March 2026
-
-</div> ```
