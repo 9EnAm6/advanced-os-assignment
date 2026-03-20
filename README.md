@@ -243,23 +243,39 @@ Enter Student ID: S12345
 Enter file path: ./assignment.pdf
 ✅ Submission successful!
 
-📁 File Structure
+## 📁 File Structure
+
 📦 advanced-os-assignment/
-├── 📄 task1.sh                     # Process Management System (Bash)
-├── 📄 task2.py                     # Job Scheduler (Python)
-├── 📄 task3.sh                     # Secure Submission System (Bash)
-├── 📄 README.md                     # This documentation file
-├── 📄 .gitignore                    # Git ignore rules
-├── 📁 Advanced_OS_Snapshots/         # Screenshots of script execution
-├── 📁 submissions/                   # Uploaded assignment files (Task 3)
-├── 📁 ArchiveLogs/                   # Compressed log files (Task 1)
-├── 📄 system_monitor_log.txt         # Task 1 activity log
-├── 📄 scheduler_log.txt              # Task 2 activity log
-├── 📄 submission_log.txt             # Task 3 activity log
-├── 📄 job_queue.txt                   # Pending jobs (Task 2)
-├── 📄 completed_jobs.txt              # Completed jobs (Task 2)
-├── 📄 login_attempts.txt              # Login tracking (Task 3)
-└── 📄 test.pdf                        # Sample test file
+├── task1.sh # Process Management System (Bash)
+├── task2.py # Job Scheduler (Python)
+├── task3.sh # Secure Submission System (Bash)
+├── task3.py # Secure Submission System (Python Version)
+├── backup.sh # Backup utility script
+├── plagiarism_check.py # Simple similarity checker
+├── requirements.txt # Python dependencies
+├── .gitignore # Git ignore rules
+├── README.md # Documentation
+├── LIMITATIONS.md # Known limitations and future improvements
+├── Advanced_OS_Snapshots/ # Screenshots of script execution
+│ ├── Task1_Menu.png
+│ ├── Task1_PID_Validation.png
+│ ├── Task1_Processes.png
+│ ├── Task2_Menu.png
+│ ├── Task2_RR.png
+│ ├── Task2_Error_Handling.png
+│ ├── Task2_Completed.png
+│ ├── Task3_Menu.png
+│ ├── Task3_Submit.png
+│ └── Task3_Lockout.png
+├── submissions/ # Uploaded assignment files (Task 3)
+├── ArchiveLogs/ # Compressed log files (Task 1)
+├── system_monitor_log.txt # Task 1 activity log
+├── scheduler_log.txt # Task 2 activity log
+├── submission_log.txt # Task 3 activity log
+├── job_queue.txt # Pending jobs (Task 2)
+├── completed_jobs.txt # Completed jobs (Task 2)
+├── login_attempts.txt # Login tracking (Task 3)
+└── test.pdf # Sample test file
 
 📊 Log Files
 Log File	Created By	Purpose
