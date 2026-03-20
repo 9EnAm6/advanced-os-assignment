@@ -90,7 +90,8 @@ This assignment addresses the following learning outcomes:
 - **Lockout Mechanism:** 3 attempts/60s balances security and usability, but lacks unlock workflow.
 
 ## ⚠️ Known Limitations
-- Task 1: No process tree termination, slow `du` on large directories
+For a detailed list of limitations and future improvements, see ['LIMITATIONS.md'](LIMITATIONS.md).
+- Task 1: No process tree termination, slow 'du' on large directories
 - Task 2: No priority aging, no I/O wait consideration
 - Task 3: MD5 collisions, no IP logging, no CAPTCHA
 
@@ -103,7 +104,6 @@ If you're on Windows and don't have WSL:
 #### For Windows Users (WSL)
 Open **PowerShell as Administrator** and run:
 
-```powershell
 # Install WSL (Windows Subsystem for Linux)
 wsl --install
 
@@ -278,18 +278,18 @@ Sample Log Entry Format
 
 ## 📸 Screenshots
 
-Screenshots demonstrating script execution can be found in the [`screenshots/`](screenshots/) folder.
+Screenshots demonstrating script execution can be found in the ['screenshots/'](screenshots/) folder.
 
 | Task | Screenshot | Description |
 |------|------------|-------------|
-| Task 1 | `task1_menu.png` | Main menu interface |
-| Task 1 | `task1_processes.png` | Top 10 memory processes |
-| Task 2 | `task2_menu.png` | Scheduler main menu |
-| Task 2 | `task2_rr.png` | Round Robin execution |
-| Task 2 | `task2_completed.png` | Completed jobs view |
-| Task 3 | `task3_menu.png` | Submission system menu |
-| Task 3 | `task3_submit.png` | File submission success |
-| Task 3 | `task3_lockout.png` | Account lockout feature |
+| Task 1 | 'task1_menu.png' | Main menu interface |
+| Task 1 | 'task1_processes.png' | Top 10 memory processes |
+| Task 2 | 'task2_menu.png' | Scheduler main menu |
+| Task 2 | 'task2_rr.png' | Round Robin execution |
+| Task 2 | 'task2_completed.png' | Completed jobs view |
+| Task 3 | 'task3_menu.png' | Submission system menu |
+| Task 3 | 'task3_submit.png' | File submission success |
+| Task 3 | 'task3_lockout.png' | Account lockout feature |
 
 ---
 
@@ -308,7 +308,7 @@ Screenshots demonstrating script execution can be found in the [`screenshots/`](
 
 ### Testing Scripts
 
-```bash
+
 # Test Task 1
 ./task1.sh
 
