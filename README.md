@@ -110,26 +110,31 @@ wsl --install
 ```
 
 # 📖 Script Documentation
-Task 1: Process Management System
-File: task1.sh
 
-Purpose
+## 🚀 Task 1: Process Management System
+
+**File:** `task1.sh`
+
+### 🎯 Purpose
 Monitors system resources, manages processes, and handles log file archiving.
 
-Features
-Option	Function	Description
-1	Display CPU/Memory Usage	Shows real-time system resource utilization
-2	List Top 10 Memory Processes	Displays PID, user, CPU%, MEM%, and command name
-3	Terminate a Process	Safely terminates selected process with confirmation
-4	Inspect Disk and Archive Logs	Finds log files >50MB and compresses them
-5	Exit	Graceful exit with confirmation
-Critical Process Protection
+### ⚙️ Features
+
+| Option | Function | Description |
+|--------|----------|-------------|
+| **1** | Display CPU/Memory Usage | Shows real-time system resource utilization |
+| **2** | List Top 10 Memory Processes | Displays PID, user, CPU%, MEM%, and command name |
+| **3** | Terminate a Process | Safely terminates selected process with confirmation |
+| **4** | Inspect Disk and Archive Logs | Finds log files >50MB and compresses them |
+| **5** | Exit | Graceful exit with confirmation |
+
+### 🛡️ Critical Process Protection
 The script protects these system processes from termination:
+- `init`, `systemd`, `kernel` processes
+- Any process with **PID 1** or **PID 2**
 
-init, systemd, kernel processes
-
-Any process with PID 1 or 2
-How to Run
+### ▶️ How to Run
+```bash
 ./task1.sh
 
 Sample Output
