@@ -245,7 +245,7 @@ Enter file path: ./assignment.pdf
 
 ## 📁 File Structure
 
-📦 advanced-os-assignment/
+advanced-os-assignment/
 ├── task1.sh # Process Management System (Bash)
 ├── task2.py # Job Scheduler (Python)
 ├── task3.sh # Secure Submission System (Bash)
@@ -277,16 +277,23 @@ Enter file path: ./assignment.pdf
 ├── login_attempts.txt # Login tracking (Task 3)
 └── test.pdf # Sample test file
 
-📊 Log Files
-Log File	Created By	Purpose
-system_monitor_log.txt	Task 1	Records all administrative actions
-scheduler_log.txt	Task 2	Logs job submissions and executions
-submission_log.txt	Task 3	Tracks file submissions and login attempts
-job_queue.txt	Task 2	Stores pending jobs
-completed_jobs.txt	Task 2	Archives completed job history
-login_attempts.txt	Task 3	Tracks login attempts for lockout feature
 
-Sample Log Entry Format
+---
+
+## 📊 Log Files
+
+| Log File | Created By | Purpose |
+|----------|------------|---------|
+| 'system_monitor_log.txt' | Task 1 | Records all administrative actions |
+| 'scheduler_log.txt' | Task 2 | Logs job submissions and executions |
+| 'submission_log.txt' | Task 3 | Tracks file submissions and login attempts |
+| 'job_queue.txt' | Task 2 | Stores pending jobs |
+| 'completed_jobs.txt' | Task 2 | Archives completed job history |
+| 'login_attempts.txt' | Task 3 | Tracks login attempts for lockout feature |
+
+---
+
+## 📝 Sample Log Entry Format
 
 2026-03-19 14:30:45 - Terminated process PID 1234
 2026-03-19 14:31:20 - Submitted job: DataProcessing by S12345
