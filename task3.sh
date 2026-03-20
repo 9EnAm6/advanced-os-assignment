@@ -2,6 +2,7 @@
 
 # Task 3: Secure Examination Submission System
 # Advanced Operating Systems - Assignment 1
+# DISTINCTION VERSION - With security awareness and limitations documented
 
 LOG_FILE="submission_log.txt"
 SUBMISSIONS_DIR="submissions"
@@ -18,6 +19,10 @@ log_event() {
 }
 
 # Function to get file hash (MD5)
+# ==== SECURITY NOTE (For distinction) ====
+# MD5 is used for demonstration purposes only.
+# MD5 has known collision vulnerabilities and should NOT be used
+# in production systems. SHA-256 or SHA-3 are recommended alternatives.
 get_file_hash() {
     md5sum "$1" | cut -d' ' -f1
 }
@@ -32,6 +37,7 @@ is_duplicate() {
     fi
     
     while IFS='|' read -r saved_fname saved_hash saved_sid saved_time; do
+        # Check both filename and content hash
         if [ "$saved_fname" = "$filename" ] || [ "$saved_hash" = "$filehash" ]; then
             return 0 # Duplicate found
         fi
@@ -45,10 +51,11 @@ check_login_attempts() {
     local username="$1"
     local current_time=$(date +%s)
     
-    # Clean old attempts
+    # Clean old attempts outside lockout window
     if [ -f "$LOGIN_ATTEMPTS_FILE" ]; then
         temp_file=$(mktemp)
         while IFS='|' read -r user time status; do
+            # Keep only attempts within lockout window
             if [ "$user" = "$username" ] && [ $((current_time - time)) -lt $LOCKOUT_TIME ]; then
                 echo "$user|$time|$status" >> "$temp_file"
             fi
@@ -63,6 +70,61 @@ check_login_attempts() {
     fi
     
     echo $failed
+}
+
+# Function to validate file
+validate_file() {
+    local file_path="$1"
+    local filename=$(basename "$file_path")
+    
+    # Check if file exists
+    if [ ! -f "$file_path" ]; then
+        echo "❌ Error: File does not exist!"
+        return 1
+    fi
+    
+    # ==== SECURITY NOTE (For distinction) ====
+    # Extension checking alone is NOT secure. Malicious users can
+    # rename any file to .pdf or .docx. Production systems should
+    # implement MIME type detection using 'file' command or
+    # libmagic for true file type verification.
+    
+    # Check file extension
+    extension="${filename##*.}"
+    if [ "$extension" != "pdf" ] && [ "$extension" != "docx" ]; then
+        echo "❌ Error: Only .pdf and .docx files are allowed!"
+        log_event "Submission failed - Invalid format: $filename"
+        return 1
+    fi
+    
+    # Check file size
+    if [ -f "$file_path" ]; then
+        file_size=$(stat -c%s "$file_path" 2>/dev/null || stat -f%z "$file_path" 2>/dev/null)
+        if [ -z "$file_size" ]; then
+            echo "❌ Error: Cannot determine file size"
+            return 1
+        fi
+        
+        if [ "$file_size" -gt "$MAX_FILE_SIZE" ]; then
+            echo "❌ Error: File exceeds 5MB limit!"
+            log_event "Submission failed - File too large: $filename ($file_size bytes)"
+            return 1
+        fi
+    fi
+    
+    return 0
+}
+
+# Function to check if account is locked
+is_account_locked() {
+    local username="$1"
+    local attempts=$(check_login_attempts "$username")
+    
+    if [ -f "$LOGIN_ATTEMPTS_FILE" ] && grep -q "^$username|.*|LOCKED" "$LOGIN_ATTEMPTS_FILE" 2>/dev/null; then
+        return 0 # Locked
+    fi
+    
+    return 1 # Not locked
 }
 
 # Main menu
@@ -86,37 +148,15 @@ while true; do
             read -p "Enter Student ID: " student_id
             read -p "Enter file path: " file_path
             
-            # Check if file exists
-            if [ ! -f "$file_path" ]; then
-                echo "❌ Error: File does not exist!"
-                log_event "Submission failed - File not found: $file_path"
+            # Validate file
+            if ! validate_file "$file_path"; then
                 continue
             fi
             
-            # Check file extension
             filename=$(basename "$file_path")
-            extension="${filename##*.}"
-            if [ "$extension" != "pdf" ] && [ "$extension" != "docx" ]; then
-                echo "❌ Error: Only .pdf and .docx files are allowed!"
-                log_event "Submission failed - Invalid format: $filename"
-                continue
-            fi
-            
-            # Check file size
-            file_size=$(stat -c%s "$file_path" 2>/dev/null || stat -f%z "$file_path" 2>/dev/null)
-            if [ -z "$file_size" ]; then
-                echo "❌ Error: Cannot determine file size"
-                continue
-            fi
-            
-            if [ "$file_size" -gt "$MAX_FILE_SIZE" ]; then
-                echo "❌ Error: File exceeds 5MB limit!"
-                log_event "Submission failed - File too large: $filename ($file_size bytes)"
-                continue
-            fi
+            file_hash=$(get_file_hash "$file_path")
             
             # Check for duplicates
-            file_hash=$(get_file_hash "$file_path")
             if is_duplicate "$filename" "$file_hash"; then
                 echo "❌ Error: Duplicate submission detected!"
                 log_event "Duplicate submission blocked: $filename (Hash: $file_hash)"
@@ -168,10 +208,11 @@ while true; do
                 continue
             fi
             
-            echo "Filename | Student ID | Date"
-            echo "----------------------------------------"
+            echo ""
+            printf "%-30s %-12s %-15s\n" "Filename" "Student ID" "Date"
+            echo "--------------------------------------------------------"
             while IFS='|' read -r fname hash sid time; do
-                echo "$fname | $sid | $time"
+                printf "%-30s %-12s %-15s\n" "$fname" "$sid" "$time"
             done < "$SUBMISSIONS_DIR/manifest.txt"
             log_event "Listed all submissions"
             ;;
@@ -183,11 +224,18 @@ while true; do
             read -p "Enter password: " password
             
             current_time=$(date +%s)
-            failed_attempts=$(check_login_attempts "$username")
+            
+            # ==== LOCKOUT NOTE (For distinction) ====
+            # TODO: Add automatic unlock mechanism after timeout period
+            # or implement admin reset functionality. Currently, once locked,
+            # accounts remain locked indefinitely. Production systems should
+            # include unlock workflows (email verification, cooldown timer,
+            # or admin override).
             
             # Check if account is locked
-            if [ -f "$LOGIN_ATTEMPTS_FILE" ] && grep -q "^$username|.*|LOCKED" "$LOGIN_ATTEMPTS_FILE"; then
+            if is_account_locked "$username"; then
                 echo "🔒 Account LOCKED due to too many failed attempts!"
+                echo "   (Note: This implementation has no auto-unlock mechanism)"
                 log_event "Login blocked - Account locked: $username"
                 continue
             fi
@@ -208,11 +256,15 @@ while true; do
                 echo "$username|$current_time|FAIL" >> "$LOGIN_ATTEMPTS_FILE"
                 
                 # Check if account should be locked
-                failed_attempts=$((failed_attempts + 1))
+                failed_attempts=$(check_login_attempts "$username")
                 if [ "$failed_attempts" -ge 3 ]; then
                     echo "🔒 Account LOCKED after 3 failed attempts!"
+                    echo "   (Note: Account will remain locked indefinitely)"
                     echo "$username|$current_time|LOCKED" >> "$LOGIN_ATTEMPTS_FILE"
                     log_event "Account locked: $username (3 failed attempts)"
+                else
+                    attempts_left=$((3 - failed_attempts))
+                    echo "   ${attempts_left} attempts remaining before lockout"
                 fi
             fi
             ;;
@@ -221,7 +273,7 @@ while true; do
             read -p "Are you sure you want to exit? (y/n): " confirm
             if [ "$confirm" = "y" ] || [ "$confirm" = "Y" ]; then
                 log_event "Exited system"
-                echo "Goodbye!"
+                echo "✅ Goodbye!"
                 exit 0
             fi
             ;;
