@@ -331,23 +331,30 @@ Screenshots demonstrating script execution can be found in the ['screenshots/'](
 
 
 # Test Task 1
-'./task1.sh'
+```bash
+./task1.sh
+```
 
 # Test Task 2
-'python3 task2.py'
-
+```bash
+python3 task2.py
+```
 # Test Task 3
-'./task3.sh'
+```bash
+./task3.sh
+```
 
 Resetting the System
 To start fresh:
+```bash
+rm -f *.txt
+```
+```bash
+rm -rf submissions/ ArchiveLogs/
+```
 
-'rm -f *.txt'
-'rm -rf submissions/ ArchiveLogs/'
 
-
-
-##📜 **License**
+# 📜 **License**
 This project is submitted as part of academic coursework for the Advanced Operating Systems module at Canterbury Christ Church University.
 
 All rights reserved. Unauthorized copying, distribution, or use of this code is prohibited.
