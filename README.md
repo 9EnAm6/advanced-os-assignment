@@ -225,7 +225,7 @@ Option	Function	Description
 5	Exit	Exit with confirmation
 
 How to Run
-./task3.sh
+'./task3.sh'
 Sample Output
 =====================================
    SECURE SUBMISSION SYSTEM
@@ -310,19 +310,19 @@ Screenshots demonstrating script execution can be found in the ['screenshots/'](
 
 
 # Test Task 1
-./task1.sh
+'./task1.sh'
 
 # Test Task 2
-python3 task2.py
+'python3 task2.py'
 
 # Test Task 3
-./task3.sh
+'./task3.sh'
 
 Resetting the System
 To start fresh:
 
-rm -f *.txt
-rm -rf submissions/ ArchiveLogs/
+'rm -f *.txt'
+'rm -rf submissions/ ArchiveLogs/'
 
 
 
