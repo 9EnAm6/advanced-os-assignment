@@ -136,7 +136,7 @@ The script protects these system processes from termination:
 ### ▶️ How to Run
 ```bash
 ./task1.sh
-
+```
 Sample Output
 =====================================
    PROCESS MANAGEMENT SYSTEM
@@ -156,38 +156,44 @@ PID   USER     %CPU  %MEM  COMMAND
 1234  novos    12.5  15.2  python3
 5678  root     5.2   8.1   systemd
 ...
-Task 2: High Performance Computing Job Scheduler
-File: task2.py
+## ⚙️ Task 2: High Performance Computing Job Scheduler
 
-Purpose
+**File:** `task2.py`
+
+### 🎯 Purpose
 Simulates a job scheduling system with multiple scheduling algorithms.
 
-Job Format
+### 📋 Job Format
 Each job contains:
 
-Student ID: Unique identifier
+| Field | Description |
+|-------|-------------|
+| **Student ID** | Unique identifier |
+| **Job Name** | Descriptive name |
+| **Estimated Time** | Execution time in seconds |
+| **Priority** | Value from 1-10 (1 = highest priority) |
 
-Job Name: Descriptive name
+### ⚙️ Features
 
-Estimated Time: Execution time in seconds
+| Option | Function | Description |
+|--------|----------|-------------|
+| **1** | View Pending Jobs | Displays current job queue |
+| **2** | Submit a New Job | Adds job to queue with all details |
+| **3** | Process Job Queue | Choose between Round Robin or Priority |
+| **4** | View Completed Jobs | Shows execution history |
+| **5** | Exit | Exit with confirmation |
 
-Priority: Value from 1-10 (1 = highest priority)
+### 🔄 Scheduling Algorithms
 
-Features
-Option	Function	Description
-1	View Pending Jobs	Displays current job queue
-2	Submit a New Job	Adds job to queue with all details
-3	Process Job Queue	Choose between Round Robin or Priority
-4	View Completed Jobs	Shows execution history
-5	Exit	Exit with confirmation
+| Algorithm | Description |
+|-----------|-------------|
+| **Round Robin** | Time quantum of 5 seconds; jobs cycle until completion |
+| **Priority** | Non-preemptive; highest priority (lowest number) executes first |
 
-Scheduling Algorithms
-Algorithm	Description
-Round Robin	Time quantum of 5 seconds; jobs cycle until completion
-Priority	Non-preemptive; highest priority (lowest number) executes first
-
-How to Run
+### ▶️ How to Run
+```bash
 python3 task2.py
+```
 
 Sample Output
 
@@ -209,30 +215,37 @@ Enter Estimated Time (seconds): 10
 Enter Priority (1-10, 1=highest): 3
 ✅ Job 'DataProcessing' submitted successfully!
 
-## Task 3: Secure Examination Submission System
+## 🔒 Task 3: Secure Examination Submission System
 
-File: task3.sh
+**File:** `task3.sh`
 
-Purpose
+### 🎯 Purpose
 Simulates a secure file submission system with access control.
 
-Security Features
-Feature	Description
-File Validation	Only accepts .pdf and .docx files
-File Size Limit	Maximum 5MB per file
-Duplicate Detection	MD5 hashing to prevent duplicate submissions
-Account Lockout	Locks after 3 failed login attempts within 60 seconds
-Comprehensive Logging	All actions recorded with timestamps
-Menu Options
-Option	Function	Description
-1	Submit Assignment	Validates and stores submission
-2	Check Submission	Verifies if file already submitted
-3	List Submissions	Shows all submitted assignments
-4	Simulate Login	Tests access control system
-5	Exit	Exit with confirmation
+### 🛡️ Security Features
 
-How to Run
-'./task3.sh'
+| Feature | Description |
+|---------|-------------|
+| **File Validation** | Only accepts .pdf and .docx files |
+| **File Size Limit** | Maximum 5MB per file |
+| **Duplicate Detection** | MD5 hashing to prevent duplicate submissions |
+| **Account Lockout** | Locks after 3 failed login attempts within 60 seconds |
+| **Comprehensive Logging** | All actions recorded with timestamps |
+
+### ⚙️ Menu Options
+
+| Option | Function | Description |
+|--------|----------|-------------|
+| **1** | Submit Assignment | Validates and stores submission |
+| **2** | Check Submission | Verifies if file already submitted |
+| **3** | List Submissions | Shows all submitted assignments |
+| **4** | Simulate Login | Tests access control system |
+| **5** | Exit | Exit with confirmation |
+
+### ▶️ How to Run
+```bash
+./task3.sh
+```
 Sample Output
 =====================================
    SECURE SUBMISSION SYSTEM
