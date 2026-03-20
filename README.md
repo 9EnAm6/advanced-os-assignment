@@ -266,37 +266,52 @@ Enter file path: ./assignment.pdf
 ## 📁 File Structure
 
 advanced-os-assignment/
-├── task1.sh  # Process Management System (Bash)
-├── task2.py  # Job Scheduler (Python)
-├── task3.sh  # Secure Submission System (Bash)
-├── task3.py  # Secure Submission System (Python Version)
-├── backup.sh  # Backup utility script
-├── plagiarism_check.py  # Simple similarity checker
-├── requirements.txt  # Python dependencies
-├── .gitignore  # Git ignore rules
-├── README.md  # Documentation
-├── LIMITATIONS.md  # Known limitations and future improvements
-├── Advanced_OS_Snapshots/  # Screenshots of script execution
-│  ├── Task1_Menu.png
-│  ├── Task1_PID_Validation.png
-│  ├── Task1_Processes.png
-│  ├── Task2_Menu.png
-│  ├── Task2_RR.png
-│  ├── Task2_Error_Handling.png
-│  ├── Task2_Completed.png
-│  ├── Task3_Menu.png
-│  ├── Task3_Submit.png
-│  └── Task3_Lockout.png
-├── submissions/  # Uploaded assignment files (Task 3)
-├── ArchiveLogs/  # Compressed log files (Task 1)
-├── system_monitor_log.txt  # Task 1 activity log
-├── scheduler_log.txt  # Task 2 activity log
-├── submission_log.txt  # Task 3 activity log
-├── job_queue.txt   # Pending jobs (Task 2)
-├── completed_jobs.txt  # Completed jobs (Task 2)
-├── login_attempts.txt  # Login tracking (Task 3)
-└── test.pdf  # Sample test file
----
+│
+├── 📜 SCRIPTS
+│ ├── task1.sh # Process Management System (Bash)
+│ ├── task2.py # Job Scheduler (Python)
+│ ├── task3.sh # Secure Submission System (Bash)
+│ ├── task3.py # Secure Submission System (Python Version)
+│ ├── backup.sh # Backup utility script
+│ └── plagiarism_check.py # Simple similarity checker
+│
+├── 📄 DOCUMENTATION
+│ ├── README.md # Main documentation
+│ ├── LIMITATIONS.md # Known limitations & future improvements
+│ └── requirements.txt # Python dependencies
+│
+├── 🖼️ SCREENSHOTS
+│ └── Advanced_OS_Snapshots/ # Execution screenshots
+│ ├── Task1_Menu.png
+│ ├── Task1_PID_Validation.png
+│ ├── Task1_Processes.png
+│ ├── Task2_Menu.png
+│ ├── Task2_RR.png
+│ ├── Task2_Error_Handling.png
+│ ├── Task2_Completed.png
+│ ├── Task3_Menu.png
+│ ├── Task3_Submit.png
+│ └── Task3_Lockout.png
+│
+├── 📁 DATA STORAGE
+│ ├── submissions/ # Uploaded assignment files (Task 3)
+│ ├── ArchiveLogs/ # Compressed log files (Task 1)
+│ │
+│ ├── 📊 LOG FILES
+│ │ ├── system_monitor_log.txt # Task 1 activity log
+│ │ ├── scheduler_log.txt # Task 2 activity log
+│ │ └── submission_log.txt # Task 3 activity log
+│ │
+│ └── 📋 QUEUE FILES
+│ ├── job_queue.txt # Pending jobs (Task 2)
+│ ├── completed_jobs.txt # Completed jobs (Task 2)
+│ └── login_attempts.txt # Login tracking (Task 3)
+│
+├── ⚙️ CONFIGURATION
+│ └── .gitignore # Git ignore rules
+│
+└── 🧪 TEST FILES
+└── test.pdf # Sample test file
 
 ## 📊 Log Files
 
