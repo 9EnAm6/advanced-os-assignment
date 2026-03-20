@@ -105,9 +105,11 @@ If you're on Windows and don't have WSL:
 Open **PowerShell as Administrator** and run:
 
 # Install WSL (Windows Subsystem for Linux)
+```bash
 wsl --install
+```
 
-📖 Script Documentation
+# 📖 Script Documentation
 Task 1: Process Management System
 File: task1.sh
 
